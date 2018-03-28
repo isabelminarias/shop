@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavigationComponent implements OnInit {
   userLoggedIn // this tells me if there is an user or if there isn't
 
-  client = [{name: 'home', link: '/home'},{name: 'home', link: '/home'},{name: 'home', link: '/home'}]
+  client = [{name: 'home', link: '/home'},{name: 'cars', link: '/home'},{name: 'appointments', link: '/home'}]
   manager
   mechanic
   admin
@@ -17,8 +17,11 @@ export class NavigationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.userLoggedIn = true; 
+    this.userLoggedIn = false; 
     this.menu = this.navs[0] // so basically usertype - 1
   }
 
+  changeLog(){
+    this.userLoggedIn = !this.userLoggedIn
+  }
 }
