@@ -1,0 +1,110 @@
+<video width="1280" height="720" class="background" autoplay muted loop>
+  <source src="https://codepen.jonnitto.ch/BackgroundVideo.mp4" type="video/mp4">
+</video>
+<div class="content">
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s6 waves-effect waves-yellow"><a (click)="change(0)">Register</a></li>
+        <li class="tab col s6 waves-effect waves-purple"><a (click)="change(1)">Login</a></li>
+      </ul>
+    </div>
+  </div>
+    <ng-container *ngIf="login; else register">
+      <form class="col s12" >
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix deep-purple-text">tag_faces</i>
+            <input id="username" type="text" class="validate">
+            <label for="username">Username</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix deep-purple-text">lock_open</i>
+            <input id="password" type="password" class="validate">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s3 offset-s5">
+            <button class="btn-large pulse yellow lighten-4" type="submit" name="action">
+              <span class="deep-purple-text text-lighten-1">Submit</span>
+              <i class="material-icons deep-purple-text right">send</i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </ng-container>
+    <ng-template #register>
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons deep-purple-text text-lighten-2  prefix">create</i>
+            <input  id="first_name" type="text" class="validate" required>
+            <label for="first_name">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons deep-purple-text text-lighten-2  prefix">create</i>
+            <input  id="last_name" type="text" class="validate" required>
+            <label for="last_name">Last Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons  deep-purple-text text-lighten-2 prefix">lock_outline</i>
+            <input id="password" type="password" class="validate" required>
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons deep-purple-text text-lighten-2  prefix">contact_mail</i>
+            <input id="email" type="email" class="validate" required>
+            <label for="email">Email</label>
+            <span class="helper-text" data-error="Error! Seems like something was wrong..." data-success="That's perfect! Thank you.">Please use an email you check frequently (We promise we won't spam you!).</span>
+          </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons deep-purple-text text-lighten-2 prefix">person_pin</i>
+              <input id="username" name="username" type="text" class="validate" data-length="20" required>
+              <label for="username">Username</label>
+              <span class="helper-text" data-error="Error! Seems like something was wrong..." data-success="That's a beautiful username!">Make sure your username is under 20 characters.</span>
+            </div>
+          </div>
+        <div class="row">
+          <div class="file-field input-field col s12">
+            <div class="btn deep-purple lighten-2 ">
+              <i class="material-icons">file_upload</i>
+              <span>File</span>
+              <input type="file" class="">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="switch col s10 offset-s1">
+            <p>Are you applying as a customer?</p>
+            <label>
+              Yes
+              <input type="checkbox">
+              <span class="lever"></span>
+              No
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s3 offset-s5">
+            <button class="btn-large pulse yellow lighten-4" type="submit" name="action">
+              <span class="deep-purple-text text-lighten-1">Submit</span>
+              <i class="material-icons deep-purple-text right">send</i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </ng-template>
+</div>
+

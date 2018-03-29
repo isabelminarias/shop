@@ -1,0 +1,26 @@
+.background {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+.content {
+    top: 25%;
+    background: rgba(215, 165, 255, 0.9);
+    color: #f1f1f1;
+    width: 60%;
+    padding: 20px;
+    margin: 0 20% 40% 20%;
+    position: absolute;
+}
+label{
+    color: rgb(2, 20, 8);
+    font-weight: 600;
+    font-size: 20;
+    
+}
