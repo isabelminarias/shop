@@ -9,7 +9,8 @@ export class ClientCarComponent implements OnInit {
 cars=[{'make': 'Mercedes'}, {'make':'BMW'}, {'make': 'Subaru'}]
 inShop=true;
 menuView; historyView =2 ; max = 5; item;
-sample=[1,2,3,4,5]
+sample=[1,2,3,4,5];
+car=1;
   constructor() { }
 
   ngOnInit() {
@@ -30,6 +31,18 @@ sample=[1,2,3,4,5]
   }
   switchItem(n:number){
     this.historyView = n;
+  }
+  switchCar(n:number){
+    this.car = n; 
+  }
+  switchC(n:number){
+    if(n===0 && this.car !== 1){
+      this.car= this.car -1;
+      
+    }
+    else if (n === 1 && this.car < this.max){
+      this.car = this.car +1; 
+    }
   }
 
 }

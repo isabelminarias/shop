@@ -6,11 +6,25 @@
 
 <div class="content" >
     <div class="container">
-        <div class="row" id="carInfoHeader">
-            <div class="col-md-12">
+        <div class="row">
+            <h5 class="deep-purple-text text-accent-4">Your Cars</h5>
+            <hr> <!--   here each car data will be associated to a number and on each click the data will change    -->
+            <ul class="pagination">
+                <li class="waves-effect"><a (click)="switchC(0)"><i class="material-icons">chevron_left</i></a></li>
+                <li class="waves-effect" [ngClass]="{'active': car==item}" *ngFor="let item of sample"><a (click)="switchCar(item)">{{item}}</a></li>
+                <li class="waves-effect"><a (click)="switchC(1)"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col s12">
                 <div class="product-title">
-                    <h3>{{user.name}}'s Car </h3>
-                    <h5><span ng-if="1==0" > <i class="material-icons">location_on</i> At the Shop!</span> <span ng-if="1==1"> <i class="material-icons">location_searching</i> In your chosen location</span></h5>
+                    <h3 class="deep-purple-text text-darken-3"> Car </h3>
+                    <ng-container *ngIf="inShop; else home">
+                        <h5 class="deep-purple-text text-accent-3"><i class="material-icons">location_on</i> At the Shop!</h5>
+                    </ng-container>
+                    <ng-template #home>
+                        <h5 class="deep-purple-text text-accent-3"><i class="material-icons">location_searching</i> In your chosen location</h5>
+                    </ng-template>
                     <hr>
                 </div>
             </div>
@@ -31,13 +45,13 @@
                     <li class="deep-purple accent-1 collection-item"><div>Last Updated<span class="secondary-content"><i class="material-icons">send</i></span></div> </li>
                     <li class="deep-purple accent-1 collection-item"><div>Last Repaired<span class="secondary-content">01/01/01</span></div> </li>
                 </ul>
-                <div class="car-appointment">
-                    <form class="form-inline">
-                        <div class="form-group">
-                        <input id="" name="appdate" type="date" placeholder="" class="form-control input-lg" required="">
-                        </div>
-                        <button type="submit" class="btn btn-success">Ask for an App</button>
-                    </form>
+                <div class="row">
+                    <div class="col s3 offset-s1">
+                    <a routerLink="add" class="waves-effect waves-light teal btn-floating btn-large"><i class="material-icons">add</i></a>
+                    </div>
+                    <div class="col s3 offset-s3">
+                    <a class="waves-effect waves-light teal btn-floating btn-large"><i class="material-icons">date_range</i></a>
+                    </div>
                 </div>
             </div>
         </div>

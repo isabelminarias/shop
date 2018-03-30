@@ -7,6 +7,7 @@ import { StoryComponent } from './homepage/story/story.component';
 import { ClientCarComponent } from './client/car/car.component';
 import { ClientHomeComponent } from './client/home/home.component';
 import { LoginComponent } from './homepage/login/login.component';
+import { AddCarComponent } from './client/add-car/add-car.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,14 @@ const routes: Routes = [
   {
   	path: 'client/car',
   	component: ClientCarComponent
+  },
+  {
+    path: 'client/car/add',
+    component: AddCarComponent 
+  },
+  {
+    path: 'client/add',
+    component: AddCarComponent
   },
   {
   	path: 'client/app',
