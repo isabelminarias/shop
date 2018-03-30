@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './homepage/home/home.component';
@@ -10,6 +11,7 @@ import { StoryComponent } from './homepage/story/story.component';
 import { ClientCarComponent } from './client/car/car.component';
 import { ClientHomeComponent } from './client/home/home.component';
 import { LoginComponent } from './homepage/login/login.component';
+import { AddCarComponent } from './client/add-car/add-car.component';
 
 
 @NgModule({
@@ -20,11 +22,14 @@ import { LoginComponent } from './homepage/login/login.component';
     StoryComponent,
     ClientCarComponent,
     ClientHomeComponent,
-    LoginComponent
+    LoginComponent,
+    AddCarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

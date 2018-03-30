@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavigationComponent implements OnInit {
   userLoggedIn // this tells me if there is an user or if there isn't
 
-  client = [{name: 'home', link: '/home'},{name: 'cars', link: '/car'},{name: 'appointments', link: '/app'}]
+  client = [{name: 'home', link: '/client'},{name: 'cars', link: '/client/car'},{name: 'appointments', link: '/client/app'}]
   manager
   mechanic
   admin

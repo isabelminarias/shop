@@ -18,7 +18,15 @@ const routes: Routes = [
   	component: StoryComponent
   },
   {
-  	path: 'car',
+    path: 'client',
+    component: ClientHomeComponent
+  },
+  {
+  	path: 'client/car',
+  	component: ClientCarComponent
+  },
+  {
+  	path: 'client/app',
   	component: ClientCarComponent
   },
   {

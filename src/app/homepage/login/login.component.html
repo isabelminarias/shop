@@ -10,25 +10,31 @@
       </ul>
     </div>
   </div>
+  Username {{username }}
+  Password {{password }}
+  Register: {{jsonRegister | json}}
+  <ul>
+    
+  </ul>
     <ng-container *ngIf="login; else register">
-      <form class="col s12" >
+      <form class="col s12" [formGroup]="rForm" (ngSubmit)="addUser(rForm.value)" >
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix deep-purple-text">tag_faces</i>
-            <input id="username" type="text" class="validate">
+            <input id="username" type="text" class="validate" formControlName="username">
             <label for="username">Username</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix deep-purple-text">lock_open</i>
-            <input id="password" type="password" class="validate">
+            <input id="password" type="password" class="validate" formControlName="password">
             <label for="password">Password</label>
           </div>
         </div>
         <div class="row">
           <div class="col s3 offset-s5">
-            <button class="btn-large pulse yellow lighten-4" type="submit" name="action">
+            <button class="btn-large pulse yellow lighten-4" type="submit" value="submit login" [disabled]="!rForm.valid" >
               <span class="deep-purple-text text-lighten-1">Submit</span>
               <i class="material-icons deep-purple-text right">send</i>
             </button>
@@ -37,42 +43,42 @@
       </form>
     </ng-container>
     <ng-template #register>
-      <form class="col s12">
+      <form class="col s12" [formGroup]="regForm" (ngSubmit)=addRegister(regForm.value) >
         <div class="row">
           <div class="input-field col s6">
             <i class="material-icons deep-purple-text text-lighten-2  prefix">create</i>
-            <input  id="first_name" type="text" class="validate" required>
-            <label for="first_name">First Name</label>
+            <input name="fname" id="fname" type="text" class="validate" required formControlName="fname" >
+            <label for="fname">First Name</label>
           </div>
           <div class="input-field col s6">
             <i class="material-icons deep-purple-text text-lighten-2  prefix">create</i>
-            <input  id="last_name" type="text" class="validate" required>
-            <label for="last_name">Last Name</label>
+            <input name="lname" id="lname" type="text" class="validate" required formControlName="lname">
+            <label for="lname">Last Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons deep-purple-text text-lighten-2 prefix">person_pin</i>
+            <input id="username" name="username" type="text" class="validate" data-length="20" required formControlName="username">
+            <label for="username">Username</label>
+            <span class="helper-text" data-error="Error! Seems like something was wrong..." data-success="That's a beautiful username!">Make sure your username is under 20 characters.</span>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons  deep-purple-text text-lighten-2 prefix">lock_outline</i>
-            <input id="password" type="password" class="validate" required>
+            <input name="password" id="password" type="password" class="validate" required formControlName="password">
             <label for="password">Password</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons deep-purple-text text-lighten-2  prefix">contact_mail</i>
-            <input id="email" type="email" class="validate" required>
+            <input id="email" type="text" class="validate" required formControlName="email">
             <label for="email">Email</label>
             <span class="helper-text" data-error="Error! Seems like something was wrong..." data-success="That's perfect! Thank you.">Please use an email you check frequently (We promise we won't spam you!).</span>
           </div>
         </div>
-        <div class="row">
-            <div class="input-field col s12">
-              <i class="material-icons deep-purple-text text-lighten-2 prefix">person_pin</i>
-              <input id="username" name="username" type="text" class="validate" data-length="20" required>
-              <label for="username">Username</label>
-              <span class="helper-text" data-error="Error! Seems like something was wrong..." data-success="That's a beautiful username!">Make sure your username is under 20 characters.</span>
-            </div>
-          </div>
         <div class="row">
           <div class="file-field input-field col s12">
             <div class="btn deep-purple lighten-2 ">
@@ -90,7 +96,7 @@
             <p>Are you applying as a customer?</p>
             <label>
               Yes
-              <input type="checkbox">
+              <input type="checkbox" formControlName="usertype">
               <span class="lever"></span>
               No
             </label>

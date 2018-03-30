@@ -1,0 +1,23 @@
+.background {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+.content {
+    top: 18%;
+    background: rgba(215, 165, 255, 0.9);
+    color: #f1f1f1;
+    width: 98%;
+    padding: 20px;
+    margin: 0 1% 10% 1%;
+    position: absolute;
+}
+.collection-item{
+    color: #ffff8d;
+}

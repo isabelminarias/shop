@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class ClientHomeComponent implements OnInit {
-
+  CarsInShop = true; 
   constructor() { }
 
   ngOnInit() {

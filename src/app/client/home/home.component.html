@@ -1,3 +1,54 @@
-<p>
-  home works!
-</p>
+
+<video width="1280" height="720" class="background" autoplay muted loop>
+  <source src="../../../assets/videos/bokeh.mp4" type="video/mp4">
+</video>
+<div class="content z-depth-3">
+  <div class="container ">
+    <h1 class="z-depth-1">Welcome, User's Name! </h1>
+    <h4>You currently have <span class="deep-purple z-depth-5" style="border-radius:10%">3</span> cars registered. Do any of them need a check-up?</h4>
+    <div class="row">
+      <div class="col s4">
+        <a class="waves-effect waves-purple btn-flat deep-purple accent-1"> <span class="yellow-text text-lighten-4">Yes, I need an appointment!</span> </a>
+      </div>
+    </div>
+    <div class="row" *ngIf="CarsInShop">
+      <h2>Your car(s) status!</h2>
+      <div class="col s8 ">
+        <table class="responsive-table highlight z-depth-5">
+          <thead class="deep-purple accent-1">
+            <td>Your Car</td>
+            <td>Date of Entry</td>
+            <td>Ready to Pick Up?</td>
+          </thead>
+          <tbody>
+            <tr>
+              <td>car 1</td>
+              <td>1/1/1</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>car 1</td>
+              <td>1/1/1</td>
+              <td>Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <h2>Quick Links </h2>
+      <div class="col s2">
+        <a class="waves-effect waves-purple btn-flat deep-purple accent-4" routerLink="cars"> <span class="yellow-text text-lighten-4">My Cars</span> </a>
+      </div>
+      <div class="col s2 offset-s1">
+        <a class="waves-effect waves-purple btn-flat deep-purple accent-2" routerLink="addCar"> <span class="yellow-text text-lighten-4">New Car</span> </a>
+      </div>
+      <div class="col s2 offset-s1">
+        <a class="waves-effect waves-purple btn-flat deep-purple accent-4" routerLink="profile"> <span class="yellow-text text-lighten-4">My Profile</span> </a>
+      </div>
+      <div class="col s2 offset-s1">
+        <a class="waves-effect waves-purple btn-flat deep-purple accent-3" routerLink="app"> <span class="yellow-text text-lighten-4">Something</span> </a>
+      </div>
+    </div>
+  </div>
+</div>

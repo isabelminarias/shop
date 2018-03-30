@@ -1,132 +1,89 @@
-<div class="container" style="margin-top:2%" >
-    <div class="row" id="carInfoHeader">
-        <div class="col-md-12">
-            <div class="product-title">
-                <h3>{{user.name}}'s Car </h3>
-                <h5><i class="fa fa-map-marker"></i> <span ng-if="1==0" >(if in the Shop) At the Shop!</span> <span ng-if="1==1"> In your location</span></h5>
-                <hr>
+<video width="1280" height="720" class="background" autoplay muted loop>
+    <source src="../../../assets/videos/shimmer.mp4" type="video/mp4">
+</video>
+
+
+
+<div class="content" >
+    <div class="container">
+        <div class="row" id="carInfoHeader">
+            <div class="col-md-12">
+                <div class="product-title">
+                    <h3>{{user.name}}'s Car </h3>
+                    <h5><span ng-if="1==0" > <i class="material-icons">location_on</i> At the Shop!</span> <span ng-if="1==1"> <i class="material-icons">location_searching</i> In your chosen location</span></h5>
+                    <hr>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row" id="carDataDisplay" >
-        <div class="col-md-8">
-            <img src="../../../assets/logan-meis-201073.jpg" width="100%"/>
-        </div>
-        <div class="col-md-4">
-            <div class="product-widget">
-                <ul class="list-group">    
-                    <li class="list-group-item"> <span class="badge badge-pill badge-primary">Model </span> {{car.model}} </li>
-                    <li class="list-group-item"> <span class="badge badge-pill badge-primary">Make </span> {{car.make}} </li>
-                    <li class="list-group-item"> <span class="badge badge-pill badge-primary">Year	</span> {{car.year}} </li>
-                    <li class="list-group-item"> <span class="badge badge-pill badge-info">License Plate</span> {{car.plate}}</li>
-                    <li class="list-group-item"> <span class="badge badge-pill badge-info">New </span> {{ car.new }}</li>
-                    <li class="list-group-item"> <span class="badge badge-pill badge-info">Silver</span> Color </li>
-                    <li class="list-group-item"> <span class="badge badge-pill badge-default">Created </span> {{car.createdAt | date:'fullDate'}} </li>
-                    <li class="list-group-item"> <span class="badge badge-pill badge-default">Update </span> {{car.updatedAt | date:'fullDate'}} </li>
-                    <li class="list-group-item"> <span class="badge badge-pill badge-warning">Last Repaired</span> Last Repaired</li>
-                    <li class="list-group-item"> <span class="badge badge-pill badge-warning">Appointment On-Going?</span> Appointment Open </li>
-                    <li class="list-group-item"> <span class="badge badge-pill badge-warning">To Be Picked Up?</span> Pick Up Notice </li>
+        <div class="row" >
+            <div class="col s8">
+                <img src="../../../assets/logan-meis-201073.jpg" width="100%"/>
+            </div>
+            <div class="col s4">
+                <ul class="collection deep-purple accent-1 z-depth-1">    
+                    <li class="deep-purple accent-1 collection-item"><div>Make<span class="secondary-content"><i class="material-icons">send</i></span></div> </li>
+                    <li class="deep-purple accent-1 collection-item"><div>Model<span class="secondary-content"><i class="material-icons">send</i></span></div> </li>
+                    <li class="deep-purple accent-1 collection-item"><div>Year<span class="secondary-content"><i class="material-icons">send</i></span></div> </li>
+                    <li class="deep-purple accent-1 collection-item"><div>License Plate<span class="secondary-content"><i class="material-icons">send</i></span></div> </li>
+                    <li class="deep-purple accent-1 collection-item"><div>New<span class="secondary-content"><i class="material-icons">send</i></span></div> </li>
+                    <li class="deep-purple accent-1 collection-item"><div>Color<span class="secondary-content"><i class="material-icons">send</i></span></div> </li>
+                    <li class="deep-purple accent-1 collection-item"><div>Created<span class="secondary-content"><i class="material-icons">send</i></span></div> </li>
+                    <li class="deep-purple accent-1 collection-item"><div>Last Updated<span class="secondary-content"><i class="material-icons">send</i></span></div> </li>
+                    <li class="deep-purple accent-1 collection-item"><div>Last Repaired<span class="secondary-content">01/01/01</span></div> </li>
                 </ul>
-            </div>
-            <div class="car-appointment">
-                <form class="form-inline">
-                    <div class="form-group">
-                    <input id="" name="appdate" type="date" placeholder="" class="form-control input-lg" required="">
-                    </div>
-                    <button type="submit" class="btn btn-success">Ask for an App</button>
-                </form>
+                <div class="car-appointment">
+                    <form class="form-inline">
+                        <div class="form-group">
+                        <input id="" name="appdate" type="date" placeholder="" class="form-control input-lg" required="">
+                        </div>
+                        <button type="submit" class="btn btn-success">Ask for an App</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
     <hr>
-</div>
-    
-<div class="container" id='Extra info'>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel-group" id="accordion">
-                <div class="panel panel-default" id="repairHistory">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                        <h3> <span class="badge badge-secondary"> Repair History </span> </h3>
-                        </a>
-                        </h4>
-                    </div>
-                    <div id="collapse1" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <ul>
-                                <li>Date Repair - Summary - <button class="btn btn-sm btn-info">Details</button> </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default" id="appHistory">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                        <h3> <span class="badge badge-secondary"> Appointment History </span> </h3>
-                        </a>
-                        </h4>
-                    </div>
-                    <div id="collapse2" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <table class="table table-hover table-dark table-striped">
-                                <thead>
-                                    <tr>
-                                    <th>App Made on</th>
-                                    <th>App Accepted on</th>
-                                    <th>Repair Finished on</th>
-                                    <th>(Days)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                    <td>app createdAt</td>
-                                    <td>repair order createdAt</td>
-                                    <td>app finish date</td>
-                                    <td>calculate created - finish</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default" id="repairItems">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                        <h3> <span class="badge badge-secondary"> Items Purchased for Repairs </span> </h3>
-                        </a>
-                        </h4>
-                    </div>
-                    <div id="collapse3" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <table class="table table-hover table-dark table-striped">
-                                <thead>
-                                    <tr>
-                                    <th>Appointment ID</th>
-                                    <th>Item</th>
-                                    <th>Item description</th>
-                                    <th>Details</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                    <td>appID#</td>
-                                    <td>item</td>
-                                    <td>item desc</td>
-                                    <td><button class="btn btn-warning btn-sm">View</button> </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s6"><a (click)="switch(0)">Appointments</a></li>
+                    <li class="tab col s6"><a (click)="switch(1)">History</a></li>
+                </ul>
             </div>
         </div>
-        <div class="col-md-4">
-            <h4>Customer Service : 011-45063800</h4>
+        <div class="row">
+            <span [ngSwitch]="menuView">
+            <div class="col s10 offset-s1" *ngSwitchCase="0">
+                <h5 class="deep-purple-text text-accent-4">Latest appointments</h5>
+                <hr>
+                <table class="highlight responsive-table centered">
+                    <thead class="#ba68c8 purple lighten-2">
+                        <td>Date</td>
+                        <td>Time in the Shop</td>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01/01/01</td>
+                            <td>5 days</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col s10 offset-s1" *ngSwitchCase="1">
+                <h5 class="deep-purple-text text-accent-4">Car repair history</h5>
+                <hr>
+                <ul class="pagination">
+                    <li class="waves-effect"><a (click)="switchH(0)"><i class="material-icons">chevron_left</i></a></li>
+                    <li class="waves-effect" [ngClass]="{'active': historyView==item}" *ngFor="let item of sample"><a (click)="switchItem(item)">{{item}}</a></li>
+                    <li class="waves-effect"><a (click)="switchH(1)"><i class="material-icons">chevron_right</i></a></li>
+                </ul>
+                
+            </div>
+            <div class="col s10 offset-s1" *ngSwitchDefault>
+                Click one of the above to get more information about your car! 
+            </div>
+            </span>
         </div>
     </div>
 </div>
