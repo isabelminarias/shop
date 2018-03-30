@@ -8,6 +8,8 @@ import { ClientCarComponent } from './client/car/car.component';
 import { ClientHomeComponent } from './client/home/home.component';
 import { LoginComponent } from './homepage/login/login.component';
 import { AddCarComponent } from './client/add-car/add-car.component';
+import { ClientAppsComponent } from './client/apps/apps.component';
+import { ClientAppComponent } from './client/app/app.component';
 
 const routes: Routes = [
   {
@@ -35,8 +37,12 @@ const routes: Routes = [
     component: AddCarComponent
   },
   {
-  	path: 'client/app',
-  	component: ClientCarComponent
+  	path: 'client/apps',
+  	component: ClientAppsComponent
+  },
+  {
+    path: 'client/apps/add',
+    component: ClientAppComponent
   },
   {
     path:'login', 

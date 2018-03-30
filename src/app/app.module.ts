@@ -12,6 +12,8 @@ import { ClientCarComponent } from './client/car/car.component';
 import { ClientHomeComponent } from './client/home/home.component';
 import { LoginComponent } from './homepage/login/login.component';
 import { AddCarComponent } from './client/add-car/add-car.component';
+import { ClientAppsComponent } from './client/apps/apps.component';
+import { ClientAppComponent } from './client/app/app.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { AddCarComponent } from './client/add-car/add-car.component';
     ClientCarComponent,
     ClientHomeComponent,
     LoginComponent,
-    AddCarComponent
+    AddCarComponent,
+    ClientAppsComponent,
+    ClientAppComponent
   ],
   imports: [
     BrowserModule,
