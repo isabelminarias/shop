@@ -5,12 +5,18 @@
   <div class="row">
     <div class="col s10 offset-s1">
       <h3 class="indigo-text text-lighten-4 centered">Welcome to your application history</h3>
-      <hr>
+      <hr><br>
+    </div>
+    <div class="row">
+      <div class="col m2 offset-m5">
+        <a routerLink="add" class="btn-floating btn-large waves-effect waves-light pink accent-2"><i class="material-icons">add</i></a>
+      </div>
     </div>
   </div>
   <div ng-if="ongoing" class="row">
     <h5 class="indigo-text text-lighten-4">You have cars in the shop. This is them.</h5>
     <hr>
+    
     <div class="row">
       <div class="col s10 offset-s1">
         <table class="responsive-table highlight">

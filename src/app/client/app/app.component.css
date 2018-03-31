@@ -1,0 +1,21 @@
+.background {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+.content {
+    top: 18%;
+    background: rgba(0, 0, 0, 0.9);
+    color: #f1f1f1;
+    width: 70%;
+    padding: 20px;
+    margin: 0 15% 10% 15%;
+    position: absolute;
+    border-radius: 5px;
+}
