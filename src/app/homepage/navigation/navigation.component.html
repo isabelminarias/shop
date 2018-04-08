@@ -12,11 +12,14 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a routerLink="/story">Our Story</a></li>
-        <li><a routerLink="/login">Temporary Login</a></li>
-        <ng-container *ngIf="userLoggedIn; else logout">
-          <li ><a (click)="changeLog()"><i class="material-icons">person</i></a></li>  
+        <li><a>User json {{user | json}}</a></li>
+        <li><a> User {{user}}  </a></li>
+        <ng-container *ngIf="userLoggedIn; else login">
+          <li><a routerLink="/login">Logout</a></li>
+          <li ><a  (click)="changeLog()"><i class="material-icons">person</i></a></li>  
         </ng-container>
-        <ng-template #logout>
+        <ng-template #login>
+          <li><a routerLink="/login">Login</a></li>
           <li><a (click)="changeLog()"><i class="material-icons">person_outline</i></a></li>
         </ng-template>
       </ul>

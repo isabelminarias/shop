@@ -5,10 +5,10 @@
   <div class="container">
     <h1 class="indigo-text text-accent-3">Welcome to the Car Register Section</h1>
     <h5 class="indigo-text text-accent-3">Make sure you input the correct information. We can change it, but it can delay the drop-off process.</h5>
-    <p>{{car}} or {{ car | json}} </p>
-    <p>{{make}} {{model}} {{year}} </p>
+    {{cForm.value | json}}
+    <br> {{car | json}}
     <hr>
-    <form class="col s12" [formGroup]="cForm" (ngSumbit)="addCar(cForm.value)" >
+    <form class="col s12" [formGroup]="cForm" (ngSumbit)=register(cForm.value)>
       <div class="row">
         <div class="input-field col s4">
           <i class="material-icons  prefix">create</i>
@@ -27,21 +27,25 @@
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s4">
+        <div class="input-field col m4">
           <i class="material-icons prefix">info</i>
           <input name="plate" id="plate" type="text" class="validate" required formControlName="plate" >
           <label for="plate">License Plate</label>
         </div>
-        <div class="input-field col s4 offset-s1">
-            <i class="material-icons prefix">create</i>
-            <input name="color" id="color" type="text" class="validate" required formControlName="color" >
-            <label for="color">Color</label>
-          </div>
-        <div class="input-field col s1 offset-s1">
-          <label>
-            <input class="indigo accent-2" type="checkbox" formControlName="new" />
-            <span>New</span>
-          </label>
+        <div class="col m3 offset-m1">
+          <label>Color</label>
+          <select class="browser-default" required formControlName="color">
+            <option value="" disabled selected>Choose your option</option>
+            <option *ngFor="let item of colour" [value]="item" >{{item}}</option>
+          </select>
+        </div>
+        <div class="col m3 offset-m1">
+          <label>Car Status</label>
+          <select class="browser-default" required formControlName="new">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="0">New</option>
+            <option value="1">Second hand/Bought</option>
+          </select>
         </div>
       </div>
       <div class="row">
@@ -49,7 +53,7 @@
           <div class="btn indigo lighten-2 ">
             <i class="material-icons">insert_photo</i>
             <span>File</span>
-            <input type="file" class="" formControlName="img">
+            <input type="file" class="">
           </div>
           <div class="file-path-wrapper">
             <input class="file-path validate" type="text">
@@ -58,9 +62,8 @@
       </div>
       <div class="row">
         <div class="col s4 offset-s2">
-          <button class="btn-large pulse yellow lighten-4" type="submit" value="car" [disabled]="!cForm.valid" >
-            <span class="deep-purple-text text-lighten-1">Submit</span>
-            <i class="material-icons deep-purple-text right">send</i>
+          <button class="btn waves-effect waves-light" type="submit" value="action">Submit
+            <i class="material-icons right">send</i>
           </button>
         </div>
         <div class="col s4 offset-s2">

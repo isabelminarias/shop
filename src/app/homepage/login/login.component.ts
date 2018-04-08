@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../service/user';
 import { NgForm, FormBuilder, NgModel, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
+import { ApiService } from '../../service/user.service'
+import { User } from '../../service/user'
 
 @Component({
   selector: 'app-login',
@@ -10,36 +11,33 @@ import { Observable } from 'rxjs/Observable';
 })
 export class LoginComponent implements OnInit {
   rForm: FormGroup; 
-  username:string = 'janedoe';
-  password:string = '';
   regForm: FormGroup;
-  jsonRegister;
-
-  login=false;
-  constructor(private fb: FormBuilder) { 
+  jsonRegister; jsonUser; user;
+  
+  log = true;
+  constructor(private fb: FormBuilder, private api: ApiService) { 
     this.rForm = fb.group({
       'username': [null, Validators.compose([Validators.required, Validators.minLength(8)])],
       'password': [null, Validators.compose([Validators.required, Validators.minLength(8)])]
     })
 
     this.regForm = fb.group({
-      'fname': [null, Validators.required],
-      'lname': [null, Validators.required],
+      'fname':    [null, Validators.required],
+      'lname':    [null, Validators.required],
       'username': [null, Validators.compose([Validators.required, Validators.minLength(8)])],
       'password': [null, Validators.compose([Validators.required, Validators.minLength(8)])],
-      'email': [null, Validators.compose([Validators.required, Validators.email])], 
-      'type': [null, Validators.required]
+      'email':    [null, Validators.compose([Validators.required, Validators.email])], 
+      'usertype': [null, Validators.required]
     })
 
   }
 
-  addUser(u){
-    this.username = u.username;
-    this.password = u.password; 
+  login(u){
+     this.api.login(u).subscribe((res)=>this.user) 
   }
 
   addRegister(r){
-    this.jsonRegister= {'name': r.fname + " " + r.lname, 'username': r.username, 'password': r.password , 'email': r.email+ "com", 'usertype': r.usertype}
+    
   }
 
   ngOnInit() {
@@ -48,10 +46,10 @@ export class LoginComponent implements OnInit {
 
   change(n: number){
     if(n===0){
-      this.login =false; 
+      this.log =false; 
     }
     else{
-      this.login = true;
+      this.log = true;
     }
   }
 }

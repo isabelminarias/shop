@@ -10,14 +10,14 @@
       </ul>
     </div>
   </div>
-  Username {{username }}
-  Password {{password }}
-  Register: {{jsonRegister | json}}
+  User: {{rForm.value | json}} <br>
+  Register: {{regForm.value | json}} <br>
+  User Confirm: {{ user | json }} or {{user}}
   <ul>
     
   </ul>
-    <ng-container *ngIf="login; else register">
-      <form class="col s12" [formGroup]="rForm" (ngSubmit)="addUser(rForm.value)" >
+    <ng-container *ngIf="log; else register">
+      <form class="col s12" [formGroup]="rForm" (ngSubmit)="login(rForm.value)" >
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix deep-purple-text">tag_faces</i>
@@ -93,18 +93,15 @@
         </div>
         <div class="row">
           <div class="switch col s10 offset-s1">
-            <p>Are you applying as a customer?</p>
-            <label>
-              Yes
-              <input type="checkbox" formControlName="usertype">
-              <span class="lever"></span>
-              No
-            </label>
+            <select class="browser-default" formControlName="usertype">
+              <option value="1" selected>I'm a client</option>
+              <option value="0">I'm not a client</option>
+            </select>
           </div>
         </div>
         <div class="row">
           <div class="col s3 offset-s5">
-            <button class="btn-large pulse yellow lighten-4" type="submit" name="action">
+            <button class="btn-large pulse yellow lighten-4" type="submit" [disabled]="!regForm.valid">
               <span class="deep-purple-text text-lighten-1">Submit</span>
               <i class="material-icons deep-purple-text right">send</i>
             </button>

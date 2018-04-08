@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { ApiService } from './service/user.service'
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './homepage/home/home.component';
 import { NavigationComponent } from './homepage/navigation/navigation.component';
@@ -14,6 +16,7 @@ import { LoginComponent } from './homepage/login/login.component';
 import { AddCarComponent } from './client/add-car/add-car.component';
 import { ClientAppsComponent } from './client/apps/apps.component';
 import { ClientAppComponent } from './client/app/app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -33,9 +36,10 @@ import { ClientAppComponent } from './client/app/app.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
